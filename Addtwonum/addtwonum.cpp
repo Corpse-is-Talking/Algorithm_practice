@@ -20,12 +20,14 @@ class Solution
     public:
         ListNode *addTwoNumbers(ListNode *l1, ListNode *l2)
         {
+            //l_sum for sum list
             ListNode * l_sum= new ListNode(0);
             ListNode *temp=l_sum;
             int sum=0;
             while(l1||l2)
             {
-                sum/=10;
+                //if one's calculation is over than, we do things with the other one
+                sum/=10; //if sum is under 10 it will become 0 else 1.
                 if(l1!=nullptr)
                     {
                         sum+=l1->val;
@@ -38,16 +40,18 @@ class Solution
 
                 }
                 l_sum->next=new ListNode(sum%10);
+                //if sum wa 19 then 9 will be added to the nextsum
                 l_sum=l_sum->next;
             }
             if(sum/10==1)
-                l_sum->next=new ListNode(1);
+                l_sum->next=new ListNode(1); //for last case
             return temp->next;
             
         }        
     };
     int main(void)
     {
+        //for sample problm
         ListNode * l1= new ListNode(2);
         ListNode *temp= l1;
         temp->next=new ListNode(4);
