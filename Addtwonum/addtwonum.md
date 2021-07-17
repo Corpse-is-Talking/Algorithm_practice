@@ -1,12 +1,14 @@
 알고리즘 데이터구조연습 2회차
 ===========================
 
-* ### 문제 출처 LeetCode: AddTwoSum (Linked list)
+* ### **문제 출처 LeetCode: AddTwoSum (Linked list)**
+    #### - ***Difficulty : Medium***
+    * Visual Studio 에서도 sample answer을 체크할 수 있도록, main함수를 따로 만들어놓았다. 
+    
+    * 거의 6개월간 이쪽공부를 안하다가, 오랫만에 알고리즘 문제를푸는데 너무 오래걸려서, 솔루션을 참고했다.
 
-    visual studio 에서도 sample answer을 체크할 수 있도록, main함수를 따로 만들어놓았다. 거의 6개월간 이쪽공부를 안하다가, 오랫만에 알고리즘 문제를푸는데 너무 오래걸려서, 솔루션을 참고했다.
 
-
-* ### FeedBack
+* ### ***FeedBack***
 
 1. Linked list 그 자체로 해결하려고 할것.
     
