@@ -6,6 +6,7 @@ class Solution{
 public:
     vector<int> twoSum(vector<int> &nums, int target)
     {
+        //number->indicating index
         map<int,int> hash_tbl;
         int index1=0;
         int index2=0;
@@ -14,12 +15,14 @@ public:
             if(hash_tbl[target-element]!=0)
             {
                 index2=hash_tbl[target-element]-1;
+                //-1 do distinguish the occured ones 
                 break;
 
             }
             else
             {
                 hash_tbl[element]=index1+1;
+                //+1 to distinguish the occured ones
                 index1++;
 
             }
