@@ -50,13 +50,12 @@ Inorder 순서대로 vector에 저장하는 간단한 재귀를 이용한 코드
 ````
 Postorder 순서대로 vector에 저장하는 간단한 재귀를 이용한 코드를 작성해본다면
 ````cpp
-        
 void Postorder(TreeNode*root, vector<int> & vec){
     if(root==nullptr) return;
     Postorder(root->left, vec); 
     Postorder(root->right,vec);
-    vec.push_back(root->val); }
-
+    vec.push_back(root->val);
+    }
   ````
 ### **3. Preorder Traversal**: 부모-> 왼쪽자식 -> 오른쪽 자식
 ````
@@ -65,11 +64,10 @@ void Postorder(TreeNode*root, vector<int> & vec){
 ````
 Preorder 순서대로 vector에 저장하는 간단한 재귀를 이용한 코드를 작성해본다면
 ````cpp
-        
     void Preorder(TreeNode*root, vector<int> & vec){
         if(root==nullptr) return;
         vec.push_back(root->val);
         Preorder(root->left, vec); 
-        Preorder(root->right,vec);}
-
+        Preorder(root->right,vec);
+        }
 ````
