@@ -10,10 +10,14 @@
 
 
     #### - ***FeedBack***
-    ![ex_screenshot](./img/Binary_Tree.png)
+    ![1024px-Binary_tree svg](https://user-images.githubusercontent.com/75593825/126117483-a4598af7-58b3-4fdb-8690-f7ab792a93ea.png)
+
     
     
-    Binary Tree example, 
+    
+    
+    
+    Binary Tree Example
     
     
     출처:  https://en.wikipedia.org/wiki/Binary_tree
@@ -25,7 +29,7 @@
         위 사진에서 Inorder순서대로 출력한다면 
         2->7->5->6->11->2->5->4->9 순서로 출력될것이다.
         ````
-        inorder 순서대로 vector에 저장하는 간단한 재귀를 이용한 코드를 작성해본다면
+        Inorder 순서대로 vector에 저장하는 간단한 재귀를 이용한 코드를 작성해본다면
         ````cpp
         
         void inorder(TreeNode*root, vector<int> & vec){
