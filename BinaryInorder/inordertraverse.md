@@ -9,20 +9,20 @@
     * 기억을 되살릴겸 파트별로 쉬운 문제부터 다시 풀고있는데, Inorder, Preorder, Postorder 정의를 다 까먹어서 정의만 다시공부하고 구현했다. 구현하는건 재귀를 사용했었던게 기억이나서 재귀를 이용하니 그리 어렵진 않았다.
 
 
-    #### - ***FeedBack***
-    ![1024px-Binary_tree svg](https://user-images.githubusercontent.com/75593825/126117483-a4598af7-58b3-4fdb-8690-f7ab792a93ea.png)
+* ###   ***FeedBack***
+![1024px-Binary_tree svg](https://user-images.githubusercontent.com/75593825/126117483-a4598af7-58b3-4fdb-8690-f7ab792a93ea.png)
 
     
     
     
     
     
-    Binary Tree Example
+Binary Tree Example
     
     
-    출처:  https://en.wikipedia.org/wiki/Binary_tree
+출처:  https://en.wikipedia.org/wiki/Binary_tree
     
-### **1. Inorder Traversal** : 왼쪽자식-> 부모 ->오른쪽자식
+#### **1. Inorder Traversal** : 왼쪽자식-> 부모 ->오른쪽자식
 
 ````
 위 사진에서 Inorder순서대로 출력한다면, 
@@ -41,7 +41,7 @@ Inorder 순서대로 vector에 저장하는 간단한 재귀를 이용한 코드
 ````
 
 
- ### **2. Postorder Traversal** :  왼쪽자식-> 오른쪽자식 -> 부모
+ #### **2. Postorder Traversal** :  왼쪽자식-> 오른쪽자식 -> 부모
 
 
 ````
@@ -57,7 +57,7 @@ void Postorder(TreeNode*root, vector<int> & vec){
     vec.push_back(root->val);
     }
   ````
-### **3. Preorder Traversal**: 부모-> 왼쪽자식 -> 오른쪽 자식
+#### **3. Preorder Traversal**: 부모-> 왼쪽자식 -> 오른쪽 자식
 ````
 위 사진에서 Preorder순서대로 출력한다면,       
 2->7->2->6->5->11->5->9->4 순서로 출력될것이다.
