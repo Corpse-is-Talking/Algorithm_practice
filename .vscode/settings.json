@@ -5,6 +5,15 @@
         "xlocnum": "cpp",
         "xtr1common": "cpp",
         "vector": "cpp",
-        "iostream": "cpp"
-    }
+        "iostream": "cpp",
+        "ostream": "cpp"
+    },
+    
+    
+
+    "doki.background.path": "C:\\Users\\junho\\Pictures\\lookback2.jpg",
+    "doki.wallpaper.path": "C:\\Users\\junho\\Pictures\\Chitanda.jpg",
+    "C_Cpp.errorSquiggles": "Disabled"
+
+
 }
