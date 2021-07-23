@@ -3,44 +3,48 @@
 	#include<vector>
 	#include<unordered_map> // to save the information of distances from the starting node
 	using namespace std;
-	void getData( vector<vector<pair<int, int>>> &v, int e_num)
-	{
-		//given data of Node, Node, weight...
-		for (int i = 0; i < e_num; i++)
-		{
-			int temp1 = 0, temp2, temp3; // i.e temp3 is the weight of passing through node temp1 and node temp2 
-			cin >> temp1 >> temp2 >> temp3; //
-			v[temp1].push_back(make_pair(temp2,temp3));  // form each element in v , v[temp1] refers to th
-		}
+	/*
+	Data given: first line : number of vertices,and edges
+				second line: starting point(which will be starting from 1)
+				rest of the line: Node Node Cost information (i.e 3 2 1 means it costs 1 to go from 3 to 2)
 
-	}
-	int main()
+	*/
+	int main(void)
 	{
-		int v_num = 0, e_num = 0;
-		cin >> v_num >> e_num;
-		int start_num = 0;
-		cin >> start_num;
-		vector<vector<pair<int, int>>> v(v_num + 1); // initializing technique, as there are total n vertices(1~n), initalizea as v_num+1
-		vector<int> distance(v_num + 1,1000000); //1000000 for infinity..
-		getData(v, e_num);
-		distance[start_num] = 0;
-		priority_queue<pair<int,int>> que;
-		que.push({ distance[start_num] ,start_num});
-		while (!que.empty())
+		int v_num=0, e_num=0, start_node=0; //initialization before calculation
+		cin >> v_num>>e_num >> start_node; //get input
+		vector<vector<pair<int,int>>> vec(v_num+1); // create vector of each node holding information of distance to other node
+		vector<int>distance(v_num+1,1000000); //initialized as infinity (or a big number)
+		// get data
+		for(int i=0; i<e_num; i++)
 		{
-			int cur_cost = -que.top().first;
-			int cur_point = que.top().second;
+			int d1=0,d2=0,d3=0;
+			cin>>d1>>d2>>d3;
+			vec[d1].push_back(make_pair(d2,d3)); //vec[d1] holds information of distance d3 between node d2
+		}
+		distance[start_node]=0;
+		priority_queue<pair<int,int>> que;
+		que.push(make_pair(distance[start_node],start_node));
+		while(!que.empty())
+		{
+			int cur_dis=-que.top().first; //will be distance minus because its max heap but we want the  min dis
+			int cur_node= que.top().second; //will get the current node 
 			que.pop();
-			if (distance[cur_point] < cur_cost)
-				continue;
-			for (int i = 0; i < v[cur_point].size(); i++)
+			for(int i=0; i<vec[cur_node].size(); i++)
 			{
-				if (distance[v[cur_point][i].first] >cur_cost + v[cur_point][i].second)
+				int node=vec[cur_node][i].first;
+				int dis=vec[cur_node][i].second;
+				if(distance[node]<=distance[cur_node]+dis)
+					continue;
+				else
 				{
-					distance[v[cur_point][i].first]=cur_cost + v[cur_point][i].second; //relax if updated..
-					que.push(make_pair( -distance[v[cur_point][i].first], v[cur_point][i].first));
+					distance[node]=distance[cur_node]+dis; //update if distance can be reduced via other route.
+
 				}
+				que.push(make_pair( -distance[node],node)); //push the updated note to the que.
+	
 			}
+			
 		}
 		for (int i = 1; i <= v_num; i++)
 		{
@@ -49,4 +53,5 @@
 			else
 				cout << distance[i] << '\n';
 		}
+		return 0;
 	}
