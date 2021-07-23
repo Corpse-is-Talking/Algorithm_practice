@@ -25,4 +25,29 @@
     이때 활용할 수 있는 데이터구조가 priority_que<pair<int,int>> 이다.
     (pair<int,int>의 첫번째 element는 distance에 관한정보, 두번째 element는 node에관한 정보이다>)
     ##### 주의!!! 
-    priority_que.top()은 que 에서의 maximum 값을 가져오기때문에, 만약 최소값을 가진 element 부터 pop 하고 싶다면, que에 push 할때 -를 붙혀서 push 하자!
+    priority_que.top()은 que 에서의 maximum 값을 가져오기때문에, 만약 최소값을 가진 element 부터 pop 하고 싶다면, que에 push 할때 -를 붙혀서 push 하자!  
+    #
+    Code Example:
+
+    ````cpp
+    while(!que.empty()){
+
+	int cur_dis=-que.top().first; //will be distance minus because its max heap but we want the  min dis
+	int cur_node= que.top().second; //will get the current node 
+	que.pop();
+    
+	for(int i=0; i<vec[cur_node].size(); i++)
+	{
+	int node=vec[cur_node][i].first;
+	int dis=vec[cur_node][i].second;
+	if(distance[node]<=distance[cur_node]+dis) //update.
+		continue;
+	else
+		{
+		distance[node]=distance[cur_node]+dis; //update if distance can be reduced via other route.
+		}
+		que.push(make_pair( -distance[node],node)); //push the updated note to the que.
+	
+	}		
+	}
+    ````
