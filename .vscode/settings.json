@@ -6,7 +6,8 @@
         "xtr1common": "cpp",
         "vector": "cpp",
         "iostream": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "xstring": "cpp"
     },
     
     
