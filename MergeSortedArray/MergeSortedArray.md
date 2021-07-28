@@ -28,6 +28,7 @@ vector<int> MergeSort(vector<int> & vec)
 {
     if(vec.size()==1)
         return vec;
+    
     for(int i=0; i<vec.size()/2; i++)
     {
         vec1.push_back(vec[i]);
@@ -36,8 +37,10 @@ vector<int> MergeSort(vector<int> & vec)
     {
         vec2.push_back(vec2[i]);
     }
+    vec1=MergeSort(vec1); ///Sort left
+    vec2=MergeSort(vec2); //Sort right
     vector<int> merged;
-    int i=0,j=0,index=0;
+    int i=0,j=0,index=0;//Sort total
     while(i<vec1.size() &&j<vec2.size());
     {
         if(vec1[i]>vec2[j])
