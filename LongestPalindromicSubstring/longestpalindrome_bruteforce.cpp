@@ -6,42 +6,37 @@
 using namespace std;
 class Solution {
 public:
-    int check_palindrome(string s, size_t&
-        found, int start)
+    bool isPalindrome(string & s, const int &start, const int &end)
     {
-
-        int palin_len = 0;
         int k = 0;
-        for (int i = start; i <=found; i++)
+        for (int i = start; i <=end; i++)
         {
-           
-            if (s[i] != s[found - k])
-                return -1;
-            palin_len++;
+            if (s[i] != s[end - k])
+                return false;
             k++;
 
         }
-        return palin_len;
+        return true;
     }
     string longestPalindrome(string s)
     {
-        int cur_max = 0;
-        string cur_string;
+        if(s.size()<=1) return s;
+        int cur_max = 1;
+        string cur_string="";
+        cur_string+=s[0];
         for (int i = 0; i < s.length(); i++)
         {
-            size_t found = s.find(s[i], i);
-            int j = 1;
-            while (found != string::npos)
+            for(int j=i+1; j<s.length(); j++)
             {
-                int palindrome_len = check_palindrome(s, found,i);
-                if (palindrome_len > cur_max)
+                if(isPalindrome(s,i,j))
                 {
-                    cur_max = palindrome_len;
-                    cur_string = s.substr(i,palindrome_len);
+                    if(cur_max<j-i+1)
+                    {
+                        cur_max=j-i+1;
+                        cur_string=s.substr(i,j-i+1);
+                    }
+
                 }
-             
-                found = s.find(s[i], found + j);
-   
             }
 
         }
