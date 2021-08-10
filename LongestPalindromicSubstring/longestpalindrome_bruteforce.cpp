@@ -23,14 +23,14 @@ public:
         if(s.size()<=1) return s;
         int cur_max = 1;
         string cur_string="";
-        cur_string+=s[0];
+        cur_string+=s[0]; //as single word is palindrome
         for (int i = 0; i < s.length(); i++)
         {
             for(int j=i+1; j<s.length(); j++)
             {
                 if(isPalindrome(s,i,j))
                 {
-                    if(cur_max<j-i+1)
+                    if(cur_max<j-i+1) //check if curmax exceeds.
                     {
                         cur_max=j-i+1;
                         cur_string=s.substr(i,j-i+1);
