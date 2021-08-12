@@ -7,7 +7,7 @@ public:
     int maxArea(vector<int>& height)
     {
 
-        //improved
+        //improved O(n) solution..
         int max_water = 0;
         int i = 0;
         int j = height.size()-1;

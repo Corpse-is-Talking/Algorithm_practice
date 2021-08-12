@@ -6,7 +6,7 @@ class Solution {
 public:
     int maxArea(vector<int>& height)
     {
-        //brute force
+        //brute force this one is totally brute foce with O(n^2): didnt pass leetcode time limit
         int max_water = 0;
         //for (int i = 0; i < height.size(); i++)
         //{
@@ -23,7 +23,7 @@ public:
         //}
 
 
-        //improved
+        //improved this will be lesser than O(n^2 )but still takes alot of time passed a time limit..
         int max_left = -1;
         max_water = max_left;
         for (int i = 0; i < height.size(); i++)
