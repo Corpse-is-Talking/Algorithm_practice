@@ -23,7 +23,7 @@ public:
         //}
 
 
-        //improved this will be lesser than O(n^2 )but still takes alot of time passed a time limit..
+        //improved this will be lesser than O(n^2 )and passed a time limit.but still takes alot of time .
         int max_left = -1;
         max_water = max_left;
         for (int i = 0; i < height.size(); i++)
