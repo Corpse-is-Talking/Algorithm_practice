@@ -1,0 +1,74 @@
+#include<iostream>
+#include<queue>
+#include<vector>
+#include<algorithm>
+using namespace std;
+vector<int> distance_info(100001, 0);
+bool is_visited[100001] = { false, };
+vector<vector<pair<int, int>>> flow(100001);
+int findLen(int start, int n_node )
+{
+	queue<int> que;
+	que.push(start);
+	is_visited[start] = true;
+	while (!que.empty())
+	{
+		int cur_point = que.front();
+		is_visited[cur_point] = true;
+		que.pop();
+		for (int i = 0; i < flow[cur_point].size(); i++)
+		{
+			int cur_index = flow[cur_point][i].first;
+			if (flow[cur_point][i].second > 0 && is_visited[cur_index] == false)
+			{
+				if (distance_info[cur_index] < distance_info[cur_point] + flow[cur_point][i].second)
+					distance_info[cur_index] = distance_info[cur_point] + flow[cur_point][i].second;
+				que.push(cur_index);
+			}	
+		}
+	}
+	int max_idx = max_element(distance_info.begin(),distance_info.end())-distance_info.begin();
+
+
+	return max_idx;
+}
+int main()
+{
+	ios_base::sync_with_stdio(0);
+
+	cin.tie(0); //cin 실행속도 향상
+
+	//input..
+	int n_node = 0;
+	cin >> n_node;
+	//vector<vector<int>> flow(n_node + 1, vector<int>(n_node+1,0));
+
+	for (int i = 0; i < n_node; i++)
+	{
+		int start = 0;
+		cin >> start;
+		while (true)
+		{
+			int dest = 0;
+			cin >> dest;
+			if (dest == -1)
+				break;
+			int f_num = 0;
+			cin >> f_num;
+			flow[start].push_back(make_pair(dest, f_num));
+		}
+	}
+	int cur_max = 0;
+	int idx = findLen(1, n_node);
+	for (int i = 1; i <= n_node; i++)
+	{
+		distance_info[i] = 0;
+		is_visited[i] = false;
+	}
+	int n_idx = findLen(idx, n_node);
+
+	
+	//fartest from root node..
+	cout << distance_info[n_idx];
+
+}
